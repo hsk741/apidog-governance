@@ -17,7 +17,6 @@ public class UserController {
     @PostMapping
     public CreateUserResponse create(
             @Valid @RequestBody CreateUserRequest request) {
-
         return new CreateUserResponse(request.name(), request.email());
     }
 }
