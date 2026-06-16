@@ -25,6 +25,7 @@ pipeline {
         stage('Test') {
 
             steps {
+                sh 'chmod +x ./gradlew'
                 sh './gradlew clean test'
             }
         }
@@ -32,6 +33,7 @@ pipeline {
         stage('Generate OpenAPI') {
 
             steps {
+                sh 'chmod +x ./gradlew'
                 sh './gradlew generateOpenApiDocs'
             }
         }
