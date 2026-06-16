@@ -12,7 +12,7 @@ description = 'apidog-governance'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(26)
+jdk        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
