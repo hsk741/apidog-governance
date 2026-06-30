@@ -1,11 +1,6 @@
 pipeline {
 
-    agent {
-        docker {
-            image 'jenkins/jenkins:lts-jdk25'
-            args '--user root'  // <--- 루트 권한 부여
-        }
-    }
+    agent any
 
 
     // environment {
