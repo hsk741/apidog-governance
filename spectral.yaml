@@ -13,7 +13,7 @@ rules:
         schema:
           type: object
           propertyNames:
-            pattern: "^/api/v([1-9][0-9]*)(/|$)/"
+            pattern: "^/api/v([1-9][0-9]*)/"
 
   operation-summary:
     description: summary is required
