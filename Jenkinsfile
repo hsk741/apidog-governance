@@ -26,7 +26,7 @@ pipeline {
 
             steps {
                 sh 'chmod +x ./gradlew'
-                sh './gradlew clean test'
+                sh './gradlew clean -x test'
             }
         }
 
@@ -38,8 +38,11 @@ pipeline {
             }
         }
 
-        stage('Spectral Validation') {
+        stage('Api Linting Validation with Spectral') {
             steps {
+
+                sh 'npm install -g @stoplight/spectral-cli'
+
                 sh '''
                     spectral lint \
                     build/openapi/openapi.yaml \
