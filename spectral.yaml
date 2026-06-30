@@ -1,6 +1,6 @@
 extends:
-  - ./rules/lowercase-path.yaml
   - spectral:oas
+  - ./rules/lowercase-path.yaml
 
 rules:
   api-version-required:
