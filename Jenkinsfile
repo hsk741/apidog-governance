@@ -49,7 +49,7 @@ pipeline {
                 sh 'npm install -g @stoplight/spectral-cli'
                 sh '''
                     spectral lint \
-                    build/openapi/openapi.yaml \
+                    build/openapi/openapi.json \
                     --ruleset spectral.yaml
                 '''
             }
