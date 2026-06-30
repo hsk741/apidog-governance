@@ -45,7 +45,7 @@ pipeline {
             steps {
 
                 sh 'npm install -g @stoplight/spectral-cli'
-
+                sh 'apt-get update && apt-get install -y libatomic1'
                 sh '''
                     spectral lint \
                     build/openapi/openapi.yaml \
