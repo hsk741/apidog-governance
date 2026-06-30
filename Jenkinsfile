@@ -44,8 +44,8 @@ pipeline {
         stage('Api Linting Validation with Spectral') {
             steps {
 
-                sh 'npm install -g @stoplight/spectral-cli'
                 sh 'apt-get update && apt-get install -y libatomic1'
+                sh 'npm install -g @stoplight/spectral-cli'
                 sh '''
                     spectral lint \
                     build/openapi/openapi.yaml \
