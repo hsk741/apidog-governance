@@ -38,6 +38,16 @@ pipeline {
             }
         }
 
+        stage('Spectral Validation') {
+            steps {
+                sh '''
+                    spectral lint \
+                    build/openapi/openapi.yaml \
+                    --ruleset spectral.yaml
+                '''
+            }
+        }
+
         // stage('Resolve Sprint Branch') {
 
         //     steps {

@@ -1,0 +1,31 @@
+extends:
+  - spectral:oas
+
+rules:
+
+  path-kebab-case:
+    description: URI must be kebab-case
+    severity: error
+
+    given: $.paths
+
+    then:
+      function: casing
+      functionOptions:
+        type: kebab
+
+  operation-description:
+    given: $.paths[*][*]
+    severity: error
+
+    then:
+      field: description
+      function: truthy
+
+  tag-required:
+    given: $.paths[*][*]
+    severity: error
+
+    then:
+      field: tags
+      function: truthy
