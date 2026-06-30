@@ -13,6 +13,9 @@ pipeline {
     //         credentials('apidog-token')
     // }
 
+    tools {
+        nodejs 'nodeJS-26.4' // Global Tool Configuration에 등록한 이름
+    }
     stages {
 
         stage('Checkout') {
