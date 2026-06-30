@@ -36,18 +36,14 @@ dependencies {
 openApi {
 
     outputDir.set(file("$buildDir/openapi"))
-
     outputFileName.set("openapi.json")
-
     waitTimeInSeconds.set(20)
-
     apiDocsUrl.set("http://localhost:8888/v3/api-docs")
 }
 
 tasks.register('uploadApidog', Exec) {
 
     dependsOn generateOpenApiDocs
-
     commandLine "curl",
             "-X", "POST",
             "${System.getenv('APIDOG_URL')}/api/v1/projects/${System.getenv('APIDOG_PROJECT_ID')}/import/openapi",
