@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class UserController {
 
-    @Operation(summary = "회원 생성")
+    @Operation(summary = "회원 생성", description = "설명")
     @PostMapping
     public CreateUserResponse create(
             @Valid @RequestBody CreateUserRequest request) {
