@@ -1,0 +1,12 @@
+functionsDir: ./functions
+
+functions:
+  - lowercase-path
+
+rules:
+  api-path-lowercase:
+    description: API Path must be kebab-case.
+    severity: error
+    given: $.paths[*]~
+    then:
+      function: lowercase-path
