@@ -1,4 +1,4 @@
-functionsDir: ./functions
+functionsDir: ../functions
 
 functions:
   - lowercase-path
