@@ -2,16 +2,6 @@ extends:
   - spectral:oas
 
 rules:
-
-  api-path-lowercase:
-    description: API Path must be lowercase.
-    severity: error
-    given: $.paths.*
-    then:
-      function: pattern
-      functionOptions:
-        match: "^[a-z0-9/{}_-]+$"
-
   api-version-required:
     description: Path must start with /api/v1 or /api/v2
     severity: error
@@ -23,6 +13,15 @@ rules:
           type: object
           propertyNames:
             pattern: "^/api/v[0-9]+/"
+
+  api-path-lowercase:
+    description: API Path must be kebab-case.
+    severity: error
+    given: $.paths.*
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(/[a-z0-9-]+|/\{[a-z][a-zA-Z0-9]*\})+$"
 
   operation-summary:
     description: summary is required
