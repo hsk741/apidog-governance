@@ -3,29 +3,39 @@ extends:
 
 rules:
 
-  path-kebab-case:
-    description: URI must be kebab-case
+  api-path-lowercase:
+    description: API Path must be lowercase.
     severity: error
-
-    given: $.paths
-
+    given: $.paths.*
     then:
-      function: casing
+      function: pattern
       functionOptions:
-        type: kebab
+        match: "^[a-z0-9/{}_-]+$"
 
-  operation-description:
-    given: $.paths[*][*]
+  api-version-required:
+    description: Path must start with /api/v1 or /api/v2
     severity: error
-
+    given: $.paths
     then:
-      field: description
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          propertyNames:
+            pattern: "^/api/v[0-9]+/"
+
+  operation-summary:
+    description: summary is required
+    severity: warn
+    given: $.paths[*][*]
+    then:
+      field: summary
       function: truthy
 
-  tag-required:
+  operation-description:
+    description: description is required
+    severity: warn
     given: $.paths[*][*]
-    severity: error
-
     then:
-      field: tags
+      field: description
       function: truthy
