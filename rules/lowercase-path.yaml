@@ -1,7 +1,5 @@
-functionsDir: ../functions
-
 functions:
-  - lowercase-path
+  - ../functions/lowercase-path
 
 rules:
   api-path-lowercase:
