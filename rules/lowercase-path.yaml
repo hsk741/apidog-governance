@@ -1,5 +1,5 @@
 functions:
-  - ../functions/lowercase-path
+  lowercase-path: ../functions/lowercase-path.js
 
 rules:
   api-path-lowercase:
