@@ -1,5 +1,7 @@
+functionsDir: ../functions
+
 functions:
-  lowercase-path: ../functions/lowercase-path.js
+  - lowercase-path
 
 rules:
   api-path-lowercase:
